@@ -1,11 +1,7 @@
 package clases
 
 open class Tipo(tipo:String) {
-    var tipo= ""
+    private var tipo= ""
 
-    init{
-        this.tipo = tipo
-    }
-
-
+    init{ this.tipo = tipo }
 }

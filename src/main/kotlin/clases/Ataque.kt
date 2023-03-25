@@ -1,7 +1,5 @@
 package clases
 
-class Ataque {
-    var nombre = ""
-    var tipo = Tipo()
-    var danyo = 0
+class Ataque(nombre: String, tipo: Tipo, danyo: Int) {
+
 }

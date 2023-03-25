@@ -1,17 +1,15 @@
 package clases
 
-class Pokemon(tipo: String,Nombre:String,Lore:String,Fuerza:Int,Vida:Int) : Tipo(tipo) {
-    var nombre = ""
-    var lore = ""
-    var fuerza = 0
-    var vida = 0
+class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:Int) : Tipo(tipo) {
+    private var nombre = ""
+    private var lore = ""
+    private var fuerza = 0
+    private var vida = 0
 
     init {
-        nombre = Nombre
-        lore = lore
-        fuerza = Fuerza
-        vida = Vida
+        this.nombre = nombre
+        this.lore = lore
+        this.fuerza = fuerza
+        this.vida = vida
     }
-
-
 }
