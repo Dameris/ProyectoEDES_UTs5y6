@@ -1,5 +1,5 @@
 package clases
 
 class Jugador {
-    var pokemon = Pokemon
+    var pokemon = Pokemon()
 }
