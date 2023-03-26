@@ -1,6 +1,6 @@
 package clases
 
-class Ataque(nombre: String, tipo: Tipo, danyo: Int) {
+class Ataque(nombre: String, tipo: String, danyo: Int): Tipo(tipo) {
     private var nombre = ""
         set(value) {
             if (value.isEmpty()) { throw IllegalArgumentException("El nombre no puede estar vacío") }

@@ -2,7 +2,7 @@ package clases
 
 open class Tipo(tipo: String) {
     companion object { var multiplicadorInicial = 0.0 }
-    private var tipo = ""
+    var tipo = ""
         set(value) {
             if (value.isEmpty()) { throw IllegalArgumentException("El tipo no puede estar vacío") }
             else { field = value }

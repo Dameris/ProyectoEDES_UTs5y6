@@ -1,6 +1,6 @@
 package clases
 
-class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:Int) : Tipo(tipo) {
+open class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:Int) : Tipo(tipo) {
     private var nombre = ""
         set(value) {
             if (value.isEmpty()) { throw IllegalArgumentException("El nombre no puede estar vacío") }
@@ -29,4 +29,13 @@ class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:Int) : 
     }
 
     fun recibirAtaque(ataque: Ataque): Double { return vida - (ataque.danyo * multiplicadorInicial) }
+    override fun toString(): String {
+        return "Pokémon\n" +
+                "---------\n" +
+                "Nombre: $nombre\n" +
+                "Tipo: $tipo\n" +
+                "Lore: $lore\n" +
+                "Fuerza: $fuerza\n" +
+                "Vida: $vida\n\n"
+    }
 }
