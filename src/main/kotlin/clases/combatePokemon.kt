@@ -4,9 +4,9 @@ class combatePokemon {
 }
 
 fun main() {
-    val MapaPokemonElegibles = mutableMapOf<String,Any>()
+    val MapaPokemonElegibles = mutableMapOf<String, Pokemon>()
 
-    val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible",56, 76)
+    val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible", 56, 76)
     MapaPokemonElegibles[pikachu.nombre] = pikachu
     val charizard = Pokemon("Fuego", "Charizard", "Es uno de los Pokémon más icónicos y populares", 85, 157)
     MapaPokemonElegibles[charizard.nombre] = charizard
@@ -19,24 +19,62 @@ fun main() {
         println(valor.toString())
     }
     println("Jugador 1, elija su Pokémon:")
-    val pokemonJugador1 = readln()
-    if (pokemonJugador1 in MapaPokemonElegibles.keys) {
-        var jugador1 = MapaPokemonElegibles[pokemonJugador1]
+    var pokemonJugador1 = readln()
+    var Jugador1 :Pokemon
+    while (true) {
+        if (MapaPokemonElegibles.containsKey(pokemonJugador1)) {
+            Jugador1 = MapaPokemonElegibles[pokemonJugador1]!!
+            break
+        }
+
+        else{
+            println("El pokemon que has elegido no esta en la lista")
+            println("Vuelva a elegir pokemon:")
+            pokemonJugador1 = readln()
+        }
+
     }
-    else{
-        println("El pokemon que has elegido no esta en la lista")
-    }
+
+
     println("Jugador 2, elija su Pokémon:")
-    val pokemonJugador2 = readln()
-    if (pokemonJugador2 in MapaPokemonElegibles.keys) {
-        var jugador2 = MapaPokemonElegibles[pokemonJugador2]
+    var pokemonJugador2: String = readln()
+    var Jugador2 :Pokemon
+    while (true) {
+        if (MapaPokemonElegibles.containsKey(pokemonJugador2)) {
+            Jugador2 = MapaPokemonElegibles[pokemonJugador2]!!
+            break
+        }
+
+        else{
+            println("El pokemon que has elegido no esta en la lista")
+            println("Vuelva a elegir pokemon:")
+            pokemonJugador2 = readln()
+        }
+
     }
-    else{
-        println("El pokemon que has elegido no esta en la lista")
+
+    var turno = 1
+    while (Jugador1.vida > 0 && Jugador2.vida > 0) {
+        println("Ronda $turno")
+        if(turno % 2 !=  0){
+            println("Turno del jugador 1")
+            var ataque1 = Jugador1.fuerza * Jugador1.comprobarEfectividad(Jugador2.tipo,Jugador1.tipo)
+            Jugador2.vida = (Jugador2.vida - ataque1).toInt()
+        }
+        else{
+            println("Turno del jugador 2")
+            var ataque2 = Jugador2.fuerza * Jugador2.comprobarEfectividad(Jugador1.tipo,Jugador2.tipo)
+            Jugador1.vida = (Jugador1.vida - ataque2).toInt()
+        }
+        turno++
     }
-
-   println(jugador1)
-
-
+    if(Jugador1.vida>Jugador2.vida){
+        println("El ganador a sido el jugador 1")
+    }
+    else   {
+        println("El ganador a sido el jugador 2")
+    }
 
 }
+
+
