@@ -1,13 +1,17 @@
 package clases
 
 open class Tipo(tipo: String) {
-    private var tipo= ""
+    companion object { var multiplicadorInicial = 0.0 }
+    private var tipo = ""
+        set(value) {
+            if (value.isEmpty()) { throw IllegalArgumentException("El tipo no puede estar vacío") }
+            else { field = value }
+        }
 
     init{ this.tipo = tipo }
 
-    fun efectividad(tipoPokemon: String, tipoAtaque: String): Any {
-        val multiplicador: Int
-        val multiplicadorDouble: Double
+    fun comprobarEfectividad(tipoPokemon: String, tipoAtaque: String): Double {
+        var multiplicador = multiplicadorInicial
 
         when (tipoAtaque) {
             "Acero" -> {
@@ -15,19 +19,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Normal", "Lucha", "Volador", "Veneno", "Tierra", "Fantasma", "Planta", "Psíquico", "Dragón", "Siniestro")
                 val listaX05 = listOf("Acero", "Agua", "Eléctrico", "Fuego")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -36,19 +42,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Acero", "Bicho", "Eléctrico", "Fantasma", "Hada", "Hielo", "Lucha", "Normal", "Psíquico", "Siniestro", "Veneno", "Volador")
                 val listaX05 = listOf("Agua", "Dragón", "Planta")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -57,19 +65,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Agua", "Bicho", "Dragón", "Eléctrico", "Hielo", "Normal", "Roca", "Tierra")
                 val listaX05 = listOf("Acero", "Fantasma", "Fuego", "Hada", "Lucha", "Veneno", "Volador")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -79,22 +89,28 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Acero")
                 val listaX0 = listOf("Hada")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
+
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
+
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
+
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
                 }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
-
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
-
-                if (tipoPokemon in listaX0) { return "x0" }
             }
 
             "Electrico" -> {
@@ -103,22 +119,27 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Dragón", "Eléctrico", "Planta")
                 val listaX0 = listOf("Tierra")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Fantasma" -> {
@@ -127,22 +148,27 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Siniestro")
                 val listaX0 = listOf("Normal")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Fuego" -> {
@@ -150,19 +176,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Eléctrico", "Fantasma", "Hada", "Lucha", "Normal", "Psíquico", "Siniestro", "Tierra", "Veneno", "Volador")
                 val listaX05 = listOf("Agua", "Dragón", "Fuego", "Roca")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -171,19 +199,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Agua", "Bicho", "Eléctrico", "Fantasma", "Hada", "Hielo", "Normal", "Planta", "Psíquico", "Roca", "Tierra", "Volador")
                 val listaX05 = listOf("Acero", "Fuego", "Veneno")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -192,19 +222,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Bicho", "Eléctrico", "Fantasma", "Hada", "Lucha", "Normal", "Psíquico", "Roca", "Siniestro", "Veneno")
                 val listaX05 = listOf("Acero", "Agua", "Fuego", "Hielo")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -214,22 +246,27 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Bicho", "Hada", "Psíquico", "Veneno", "Volador")
                 val listaX0 = listOf("Fantasma")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Normal" -> {
@@ -237,17 +274,22 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Acero", "Roca")
                 val listaX0 = listOf("Fantasma")
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                when (tipoPokemon) {
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Planta" -> {
@@ -255,19 +297,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Eléctrico", "Fantasma", "Hada", "Hielo", "Lucha", "Normal", "Psíquico", "Siniestro")
                 val listaX05 = listOf("Acero", "Bicho", "Dragón", "Fuego", "Planta", "Veneno", "Volador")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -277,22 +321,27 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Acero", "Psíquico")
                 val listaX0 = listOf("Siniestro")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Roca" -> {
@@ -300,19 +349,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Agua", "Dragón", "Eléctrico", "Fantasma", "Hada", "Normal", "Planta", "Psíquico", "Roca", "Siniestro", "Veneno")
                 val listaX05 = listOf("Acero", "Lucha", "Tierra")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -321,19 +372,21 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Acero", "Agua", "Bicho", "Dragón", "Eléctrico", "Fuego", "Hielo", "Normal", "Planta", "Roca", "Tierra", "Veneno", "Volador")
                 val listaX05 = listOf("Hada", "Lucha", "Siniestro")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
 
@@ -343,22 +396,27 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Bicho", "Planta")
                 val listaX0 = listOf("Volador")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Veneno" -> {
@@ -367,22 +425,27 @@ open class Tipo(tipo: String) {
                 val listaX05 = listOf("Fantasma", "Roca", "Tierra", "Veneno")
                 val listaX0 = listOf("Acero")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
-                }
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
 
-                if (tipoPokemon in listaX0) { return "x0" }
+                    in listaX0 -> {
+                        multiplicador = 0.0
+                        println("x0")
+                    }
+                }
             }
 
             "Volador" -> {
@@ -390,22 +453,25 @@ open class Tipo(tipo: String) {
                 val listaX1 = listOf("Agua", "Dragón", "Fuego", "Hada", "Hielo", "Normal", "Psiquico", "Siniestro", "Tierra", "Veneno", "Volador", "Fantasma")
                 val listaX05 = listOf("Acero", "Eléctrico", "Roca")
 
-                if (tipoPokemon in listaX2) {
-                    multiplicador = 2
-                    return "x2"
-                }
+                when (tipoPokemon) {
+                    in listaX2 -> {
+                        multiplicador = 2.0
+                        println("x2")
+                    }
 
-                if (tipoPokemon in listaX1) {
-                    multiplicador = 1
-                    return "x1"
-                }
+                    in listaX1 -> {
+                        multiplicador = 1.0
+                        println("x1")
+                    }
 
-                if (tipoPokemon in listaX05) {
-                    multiplicadorDouble = 0.5
-                    return "x0.5"
+                    in listaX05 -> {
+                        multiplicador = 0.5
+                        println("x0.5")
+                    }
                 }
             }
         }
-        return ("Daño total: " + ) // FALTA HACER EL RETURN FINAL
+        multiplicadorInicial = multiplicador
+        return multiplicador
     }
 }
