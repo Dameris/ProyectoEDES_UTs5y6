@@ -2,13 +2,13 @@ package clases
 
 fun main() {
     val pokemonElegibles = mutableMapOf<String, Pokemon>()
-    val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible", 56, 120)
+    val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible", 66, 120)
     pokemonElegibles[pikachu.nombre] = pikachu
-    val charizard = Pokemon("Fuego", "Charizard", "Es uno de los Pokémon más icónicos y populares", 85, 157)
+    val charizard = Pokemon("Fuego", "Charizard", "Es uno de los Pokémon más icónicos y populares", 100, 231)
     pokemonElegibles[charizard.nombre] = charizard
-    val squirtle = Pokemon("Agua", "Squirtle", "Es muy popular debido a su lindo aspecto y su habilidad para aprender poderosas técnicas de agua", 98, 173)
+    val squirtle = Pokemon("Agua", "Squirtle", "Es muy popular debido a su lindo aspecto y su habilidad para aprender poderosas técnicas de agua", 78, 150)
     pokemonElegibles[squirtle.nombre] = squirtle
-    val venusaur = Pokemon("Planta", "Venusaur", "Además de sus habilidades de lucha, es conocido por su capacidad para controlar el clima", 83, 164)
+    val venusaur = Pokemon("Planta", "Venusaur", "Además de sus habilidades de lucha, es conocido por su capacidad para controlar el clima", 93, 164)
     pokemonElegibles[venusaur.nombre] = venusaur
 
     for (valor in pokemonElegibles.values) { println(valor.toString()) }
