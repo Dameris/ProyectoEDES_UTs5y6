@@ -54,19 +54,21 @@ fun main() {
     }
 
     var turno = 1
-    while (Jugador1.vida > 0 && Jugador2.vida > 0) {
-        println("Ronda $turno")
-        if(turno % 2 !=  0){
-            println("Turno del jugador 1")
-            var ataque1 = Jugador1.fuerza * Jugador1.comprobarEfectividad(Jugador2.tipo,Jugador1.tipo)
-            Jugador2.vida = (Jugador2.vida - ataque1).toInt()
-        }
-        else{
-            println("Turno del jugador 2")
-            var ataque2 = Jugador2.fuerza * Jugador2.comprobarEfectividad(Jugador1.tipo,Jugador2.tipo)
-            Jugador1.vida = (Jugador1.vida - ataque2).toInt()
-        }
-        turno++
+        while (Jugador1.vida > 0 && Jugador2.vida > 0) {
+            println("Ronda $turno")
+            if(turno % 2 !=  0){
+                println("Turno del jugador 1")
+                var ataque1 = Jugador1.fuerza * Jugador1.comprobarEfectividad(Jugador2.tipo,Jugador1.tipo)
+                Jugador2.vida = (Jugador2.vida - ataque1).toInt()
+                println("la vida del jugador 2 esta en ${Jugador2.vida}")
+            }
+            else{
+                println("Turno del jugador 2")
+                var ataque2 = Jugador2.fuerza * Jugador2.comprobarEfectividad(Jugador1.tipo,Jugador2.tipo)
+                Jugador1.vida = (Jugador1.vida - ataque2).toInt()
+                println("la vida del jugador 1 esta en ${Jugador1.vida}")
+            }
+            turno++
     }
     if(Jugador1.vida>Jugador2.vida){
         println("El ganador a sido el jugador 1")

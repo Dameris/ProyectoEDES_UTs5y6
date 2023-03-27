@@ -1,5 +1,13 @@
 package clases
 
+/**
+ * Clase para elegir el tipo del pokemon a escoger
+ *
+ * @property Tipo
+ * @author Alejandro Diaz y Daniel Merino
+ * @param tipo esta variables pide el tipo del pokemon y si esta el string vacío saldrá una exepción del setter
+ * @since 1.0
+ */
 open class Tipo(tipo: String) {
     companion object { var multiplicadorInicial = 0.0 }
     var tipo = ""
@@ -8,7 +16,16 @@ open class Tipo(tipo: String) {
             else { field = value }
         }
 
+    /**
+     * Se inicialñiza el constructor
+     */
     init{ this.tipo = tipo }
+
+    /**
+     * Este método calcula la efectividad del ataque al pokemon que lo recibe, mediante una lista que calcula cuando es un x2, un x1, x0.5 y x0
+     *
+     * @return Devuelve un número sobre la efectividad del ataque
+     */
 
     fun comprobarEfectividad(tipoPokemon: String, tipoAtaque: String): Double {
         var multiplicador = multiplicadorInicial
