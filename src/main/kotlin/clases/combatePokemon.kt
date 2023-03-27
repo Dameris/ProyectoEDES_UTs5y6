@@ -28,6 +28,8 @@ fun main() {
             pokemonJugador1 = readln()
         }
     }
+    println()
+
     println("Jugador 2, elija su Pokémon:")
     var pokemonJugador2: String = readln()
     val jugador2: Pokemon
@@ -46,6 +48,7 @@ fun main() {
 
     var turno = 1
     while (jugador1.vida > 0 && jugador2.vida > 0) {
+        println()
         println("Ronda $turno")
         if (turno % 2 != 0) {
             println("${jugador1.nombre} ataca a ${jugador2.nombre}")
@@ -63,6 +66,7 @@ fun main() {
         }
         turno++
     }
+
     if (jugador1.vida > jugador2.vida) { println("${jugador1.nombre} ha ganado") }
     else { println("${jugador2.nombre} ha ganado") }
 }
