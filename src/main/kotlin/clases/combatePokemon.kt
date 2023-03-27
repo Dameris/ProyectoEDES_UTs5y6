@@ -2,7 +2,7 @@ package clases
 
 fun main() {
     val pokemonElegibles = mutableMapOf<String, Pokemon>()
-    val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible", 56, 200)
+    val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible", 56, 120)
     pokemonElegibles[pikachu.nombre] = pikachu
     val charizard = Pokemon("Fuego", "Charizard", "Es uno de los Pokémon más icónicos y populares", 85, 157)
     pokemonElegibles[charizard.nombre] = charizard
