@@ -6,34 +6,34 @@ package clases
  *
  * @property Pokemon
  * @constructor tipo, nombre, lore, fuerza, vida
- * @param nombre indica el nombre del pokemon el cuál tiene un setter que impide que el argumento este vacio
- * @param lore indica el lore con algunas caracteristicas del pokemon el cuál tiene un setter que impide que el argumento este vacío
- * @param fuerza indica los puntos de fuerza que tiene el pokemon el cuál tiene un setter que impide que el número no sea menor a 0
- * @param vida indica los puntos de vida que tiene el pokemon el cuál tiene un setter que impide que el número no sea menor a 0
+ * @param nombre indica el nombre del pokemon, el cual, tiene un setter que impide que el argumento este vacío
+ * @param lore indica el lore con algunas características del pokemon el cual tiene un setter que impide que el argumento este vacío
+ * @param fuerza indica los puntos de fuerza que tiene el pokemon el cual tiene un setter que impide que el número no sea menor a 0
+ * @param vida indica los puntos de vida que tiene el pokemon el cual tiene un setter que impide que el número no sea menor a 0
  * @author Alejandro Diaz y Daniel Merino
  * @since 1.0
  *
  */
 open class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:Int) : Tipo(tipo) {
-     var nombre = ""
+    var nombre = ""
         set(value) {
             if (value.isEmpty()) { throw IllegalArgumentException("El nombre no puede estar vacío") }
             else { field = value }
         }
-     var lore = ""
+    private var lore = ""
         set(value) {
             if (value.isEmpty()) { throw IllegalArgumentException("El lore del Pokémon no puede estar vacío") }
             else { field = value }
         }
-     var fuerza = 0
+    var fuerza = 0
         set(value) {
             if (value < 0){ throw IllegalArgumentException("La fuerza no puede ser negativa") }
             else { field = value }
         }
-     var vida = 0
+    var vida = 0
         set(value) {
-            if (value<0){ throw IllegalArgumentException("La vida no puede ser negativa") }
-            else { field = value }
+            field = if (value < 0) { 0 }
+            else { value }
         }
 
     /**

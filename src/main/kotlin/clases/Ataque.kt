@@ -25,7 +25,7 @@ class Ataque(nombre: String, tipo: String, danyo: Int): Tipo(tipo) {
             else { field = value }
         }
     /**
-     * Se inicialñiza el constructor
+     * Se inicializa el constructor
      */
     init {
         this.nombre = nombre

@@ -5,7 +5,7 @@ package clases
  *
  * @property Tipo
  * @author Alejandro Diaz y Daniel Merino
- * @param tipo esta variables pide el tipo del pokemon y si esta el string vacío saldrá una exepción del setter
+ * @param tipo esta variable pide el tipo del pokemon y si está el string vacío saldrá una excepción del setter
  * @since 1.0
  */
 open class Tipo(tipo: String) {
@@ -17,7 +17,7 @@ open class Tipo(tipo: String) {
         }
 
     /**
-     * Se inicialñiza el constructor
+     * Se inicializa el constructor
      */
     init{ this.tipo = tipo }
 
