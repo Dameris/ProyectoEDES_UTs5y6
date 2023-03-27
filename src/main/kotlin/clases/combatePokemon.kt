@@ -4,26 +4,26 @@ class combatePokemon {
 }
 
 fun main() {
-    val MapaPokemonElegibles = mutableMapOf<String, Pokemon>()
+    val mapaPokemonElegibles = mutableMapOf<String, Pokemon>()
 
     val pikachu = Pokemon("Electrico", "Pikachu", "Es el Pokémon más conocido y reconocible", 56, 76)
-    MapaPokemonElegibles[pikachu.nombre] = pikachu
+    mapaPokemonElegibles[pikachu.nombre] = pikachu
     val charizard = Pokemon("Fuego", "Charizard", "Es uno de los Pokémon más icónicos y populares", 85, 157)
-    MapaPokemonElegibles[charizard.nombre] = charizard
+    mapaPokemonElegibles[charizard.nombre] = charizard
     val squirtle = Pokemon("Agua", "Squirtle", "Es muy popular debido a su lindo aspecto y su habilidad para aprender poderosas técnicas de agua", 98, 173)
-    MapaPokemonElegibles[squirtle.nombre] = squirtle
+    mapaPokemonElegibles[squirtle.nombre] = squirtle
     val venusaur = Pokemon("Planta", "Venusaur", "Además de sus habilidades de lucha, es conocido por su capacidad para controlar el clima", 83, 164)
-    MapaPokemonElegibles[squirtle.nombre] = squirtle
+    mapaPokemonElegibles[venusaur.nombre] = venusaur
 
-    for ((clave, valor) in MapaPokemonElegibles) {
+    for (valor in mapaPokemonElegibles.values) {
         println(valor.toString())
     }
     println("Jugador 1, elija su Pokémon:")
     var pokemonJugador1 = readln()
-    var Jugador1 :Pokemon
+    val jugador1: Pokemon
     while (true) {
-        if (MapaPokemonElegibles.containsKey(pokemonJugador1)) {
-            Jugador1 = MapaPokemonElegibles[pokemonJugador1]!!
+        if (mapaPokemonElegibles.containsKey(pokemonJugador1)) {
+            jugador1 = mapaPokemonElegibles[pokemonJugador1]!!
             break
         }
 
@@ -38,45 +38,36 @@ fun main() {
 
     println("Jugador 2, elija su Pokémon:")
     var pokemonJugador2: String = readln()
-    var Jugador2 :Pokemon
+    val jugador2: Pokemon
     while (true) {
-        if (MapaPokemonElegibles.containsKey(pokemonJugador2)) {
-            Jugador2 = MapaPokemonElegibles[pokemonJugador2]!!
+        if (mapaPokemonElegibles.containsKey(pokemonJugador2)) {
+            jugador2 = mapaPokemonElegibles[pokemonJugador2]!!
             break
         }
-
         else{
             println("El pokemon que has elegido no esta en la lista")
             println("Vuelva a elegir pokemon:")
             pokemonJugador2 = readln()
         }
-
     }
 
     var turno = 1
-        while (Jugador1.vida > 0 && Jugador2.vida > 0) {
-            println("Ronda $turno")
-            if(turno % 2 !=  0){
-                println("Turno del jugador 1")
-                var ataque1 = Jugador1.fuerza * Jugador1.comprobarEfectividad(Jugador2.tipo,Jugador1.tipo)
-                Jugador2.vida = (Jugador2.vida - ataque1).toInt()
-                println("la vida del jugador 2 esta en ${Jugador2.vida}")
-            }
-            else{
-                println("Turno del jugador 2")
-                var ataque2 = Jugador2.fuerza * Jugador2.comprobarEfectividad(Jugador1.tipo,Jugador2.tipo)
-                Jugador1.vida = (Jugador1.vida - ataque2).toInt()
-                println("la vida del jugador 1 esta en ${Jugador1.vida}")
-            }
-            turno++
+    while (jugador1.vida > 0 && jugador2.vida > 0) {
+        println("Ronda $turno")
+        if(turno % 2 !=  0) {
+            println("Turno del jugador 1")
+            val ataque1 = jugador1.fuerza * jugador1.comprobarEfectividad(jugador2.tipo,jugador1.tipo)
+            jugador2.vida = (jugador2.vida - ataque1).toInt()
+            println("la vida del jugador 2 esta en ${jugador2.vida}")
+        }
+        else{
+            println("Turno del jugador 2")
+            val ataque2 = jugador2.fuerza * jugador2.comprobarEfectividad(jugador1.tipo,jugador2.tipo)
+            jugador1.vida = (jugador1.vida - ataque2).toInt()
+            println("la vida del jugador 1 esta en ${jugador1.vida}")
+        }
+        turno++
     }
-    if(Jugador1.vida>Jugador2.vida){
-        println("El ganador a sido el jugador 1")
-    }
-    else   {
-        println("El ganador a sido el jugador 2")
-    }
-
+    if(jugador1.vida > jugador2.vida) { println("El ganador a sido el jugador 1") }
+    else { println("El ganador a sido el jugador 2") }
 }
-
-
