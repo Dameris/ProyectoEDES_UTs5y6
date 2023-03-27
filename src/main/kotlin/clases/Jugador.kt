@@ -12,5 +12,4 @@ package clases
  *
  */
 
-class Jugador(tipo: String, nombre: String, lore: String, fuerza: Int, vida: Int):
-    Pokemon(tipo, nombre, lore, fuerza, vida)
+class Jugador(pokemon: Pokemon)

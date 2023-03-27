@@ -14,6 +14,7 @@ package clases
  * @since 1.0
  *
  */
+
 open class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:Int) : Tipo(tipo) {
     var nombre = ""
         set(value) {
@@ -52,7 +53,11 @@ open class Pokemon(tipo: String, nombre:String, lore:String, fuerza:Int, vida:In
      * @return La vida actualizada después del ataque recibido
      *
      */
-    fun recibirAtaque(ataque: Ataque): Double { return vida - (ataque.danyo * multiplicadorInicial) }
+    fun recibirAtaque(ataque: Ataque): Double {
+        var danyoRecibido= vida - (ataque.danyo * multiplicadorInicial)
+        if (danyoRecibido < 0) { danyoRecibido = 0.0 }
+        return danyoRecibido
+    }
 
     /**
      * Este método devuelve una cadena que representa el pokemon con todos los detalles

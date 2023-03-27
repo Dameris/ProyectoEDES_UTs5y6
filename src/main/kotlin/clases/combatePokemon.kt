@@ -1,8 +1,5 @@
 package clases
 
-class combatePokemon {
-}
-
 fun main() {
     val mapaPokemonElegibles = mutableMapOf<String, Pokemon>()
 
@@ -15,9 +12,8 @@ fun main() {
     val venusaur = Pokemon("Planta", "Venusaur", "Además de sus habilidades de lucha, es conocido por su capacidad para controlar el clima", 83, 164)
     mapaPokemonElegibles[venusaur.nombre] = venusaur
 
-    for (valor in mapaPokemonElegibles.values) {
-        println(valor.toString())
-    }
+    for (valor in mapaPokemonElegibles.values) { println(valor.toString()) }
+
     println("Jugador 1, elija su Pokémon:")
     var pokemonJugador1 = readln()
     val jugador1: Pokemon
@@ -26,15 +22,13 @@ fun main() {
             jugador1 = mapaPokemonElegibles[pokemonJugador1]!!
             break
         }
-
-        else{
+        else {
             println("El pokemon que has elegido no esta en la lista")
             println("Vuelva a elegir pokemon:")
             pokemonJugador1 = readln()
         }
 
     }
-
 
     println("Jugador 2, elija su Pokémon:")
     var pokemonJugador2: String = readln()
@@ -44,7 +38,7 @@ fun main() {
             jugador2 = mapaPokemonElegibles[pokemonJugador2]!!
             break
         }
-        else{
+        else {
             println("El pokemon que has elegido no esta en la lista")
             println("Vuelva a elegir pokemon:")
             pokemonJugador2 = readln()
@@ -56,19 +50,23 @@ fun main() {
         println("Ronda $turno")
         if(turno % 2 !=  0) {
             println("Turno del jugador 1")
-            val ataque1 = jugador1.fuerza * jugador1.comprobarEfectividad(jugador2.tipo,jugador1.tipo)
+            val ataque1 = jugador1.fuerza * jugador1.comprobarEfectividad(jugador2.tipo, jugador1.tipo)
             jugador2.vida = (jugador2.vida - ataque1).toInt()
             println("la vida del jugador 2 esta en ${jugador2.vida}")
         }
-        else{
+        else {
             println("Turno del jugador 2")
-            val ataque2 = jugador2.fuerza * jugador2.comprobarEfectividad(jugador1.tipo,jugador2.tipo)
+            val ataque2 = jugador2.fuerza * jugador2.comprobarEfectividad(jugador1.tipo, jugador2.tipo)
             jugador1.vida = (jugador1.vida - ataque2).toInt()
             println("la vida del jugador 1 esta en ${jugador1.vida}")
         }
         turno++
     }
 
-    if(jugador1.vida > jugador2.vida) { println("El ganador a sido el jugador 1") }
-    else { println("El ganador a sido el jugador 2") }
+    if(jugador1.vida > jugador2.vida) { println("El ganador ha sido el jugador 1") }
+    else { println("El ganador ha sido el jugador 2") }
+
+    // Prueba de la función recibirAtaque
+    println()
+    println(jugador1.recibirAtaque(Ataque("Rayo", "Electrico", 124)))
 }

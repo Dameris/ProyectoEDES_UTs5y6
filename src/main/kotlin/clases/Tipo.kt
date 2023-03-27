@@ -8,6 +8,7 @@ package clases
  * @param tipo esta variable pide el tipo del pokemon y si está el string vacío saldrá una excepción del setter
  * @since 1.0
  */
+
 open class Tipo(tipo: String) {
     companion object { var multiplicadorInicial = 0.0 }
     var tipo = ""

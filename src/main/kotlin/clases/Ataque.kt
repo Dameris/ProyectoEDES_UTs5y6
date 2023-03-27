@@ -13,6 +13,7 @@ package clases
  * @since 1.0
  *
  */
+
 class Ataque(nombre: String, tipo: String, danyo: Int): Tipo(tipo) {
     private var nombre = ""
         set(value) {
