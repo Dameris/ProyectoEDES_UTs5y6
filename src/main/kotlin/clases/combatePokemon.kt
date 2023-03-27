@@ -68,6 +68,7 @@ fun main() {
         }
         turno++
     }
+
     if(jugador1.vida > jugador2.vida) { println("El ganador a sido el jugador 1") }
     else { println("El ganador a sido el jugador 2") }
 }
