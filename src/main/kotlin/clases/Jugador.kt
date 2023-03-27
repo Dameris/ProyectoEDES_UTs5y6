@@ -12,4 +12,4 @@ package clases
  *
  */
 
-class Jugador(pokemon: Pokemon)
+class Jugador(private var pokemon: Pokemon)
