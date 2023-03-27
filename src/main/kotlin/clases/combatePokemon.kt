@@ -31,7 +31,7 @@ fun main() {
     println()
 
     println("Jugador 2, elija su Pokémon:")
-    var pokemonJugador2: String = readln()!!
+    var pokemonJugador2 = readln()
     val jugador2: Pokemon
     while (true) {
         if (pokemonElegibles.containsKey(pokemonJugador2)) {
@@ -52,8 +52,8 @@ fun main() {
         println("Ronda $turno")
         if (turno % 2 != 0) {
             println("Escribe el ataque a usar : ")
-            var ataquejugador1 = Ataque(readln()!!,jugador1.tipo,jugador1.fuerza)
-            println("${jugador1.nombre} usa ${ataquejugador1.nombre} sobre ${jugador2.nombre}")
+            val ataqueJugador1 = Ataque(readln(),jugador1.tipo, jugador1.fuerza)
+            println("${jugador1.nombre} usa ${ataqueJugador1.nombre} sobre ${jugador2.nombre}")
             val ataque1 = jugador1.fuerza * jugador1.comprobarEfectividad(jugador2.tipo, jugador1.tipo)
             jugador2.vida = (jugador2.vida - ataque1).toInt()
             if (jugador2.vida <= 0) { println("${jugador2.nombre} ha sido derrotado") }
@@ -61,8 +61,8 @@ fun main() {
         }
         else {
             println("Escribe el ataque a usar : ")
-            var ataquejugador2 = Ataque(readln()!!,jugador1.tipo,jugador1.fuerza)
-            println("${jugador2.nombre} usa ${ataquejugador2.nombre} sobre ${jugador1.nombre}")
+            val ataqueJugador2 = Ataque(readln(), jugador2.tipo, jugador2.fuerza)
+            println("${jugador2.nombre} usa ${ataqueJugador2.nombre} sobre ${jugador1.nombre}")
             val ataque2 = jugador2.fuerza * jugador2.comprobarEfectividad(jugador1.tipo, jugador2.tipo)
             jugador1.vida = (jugador1.vida - ataque2).toInt()
             if (jugador1.vida == 0) { println("${jugador1.nombre} ha sido derrotado") }
@@ -74,12 +74,3 @@ fun main() {
     if (jugador1.vida > jugador2.vida) { println("${jugador1.nombre} ha ganado") }
     else { println("${jugador2.nombre} ha ganado") }
 }
-/*
-if(jugador1.vida > jugador2.vida) { println("El ganador ha sido el jugador 1") }
-else { println("El ganador ha sido el jugador 2") }
-
-// Prueba de la función recibirAtaque
-println()
-println(jugador1.recibirAtaque(Ataque("Rayo", "Electrico", 124)))
-}
-*/
