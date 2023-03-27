@@ -31,7 +31,7 @@ fun main() {
     println()
 
     println("Jugador 2, elija su Pokémon:")
-    var pokemonJugador2: String = readln()
+    var pokemonJugador2: String = readln()!!
     val jugador2: Pokemon
     while (true) {
         if (pokemonElegibles.containsKey(pokemonJugador2)) {
@@ -51,14 +51,18 @@ fun main() {
         println()
         println("Ronda $turno")
         if (turno % 2 != 0) {
-            println("${jugador1.nombre} ataca a ${jugador2.nombre}")
+            println("Escribe el ataque a usar : ")
+            var ataquejugador1 = Ataque(readln()!!,jugador1.tipo,jugador1.fuerza)
+            println("${jugador1.nombre} usa ${ataquejugador1.nombre} sobre ${jugador2.nombre}")
             val ataque1 = jugador1.fuerza * jugador1.comprobarEfectividad(jugador2.tipo, jugador1.tipo)
             jugador2.vida = (jugador2.vida - ataque1).toInt()
-            if (jugador2.vida == 0) { println("${jugador2.nombre} ha sido derrotado") }
+            if (jugador2.vida <= 0) { println("${jugador2.nombre} ha sido derrotado") }
             else { println("la vida de ${jugador2.nombre} se ha reducido a ${jugador2.vida} pts") }
         }
         else {
-            println("${jugador2.nombre} ataca a ${jugador1.nombre}")
+            println("Escribe el ataque a usar : ")
+            var ataquejugador2 = Ataque(readln()!!,jugador1.tipo,jugador1.fuerza)
+            println("${jugador2.nombre} usa ${ataquejugador2.nombre} sobre ${jugador1.nombre}")
             val ataque2 = jugador2.fuerza * jugador2.comprobarEfectividad(jugador1.tipo, jugador2.tipo)
             jugador1.vida = (jugador1.vida - ataque2).toInt()
             if (jugador1.vida == 0) { println("${jugador1.nombre} ha sido derrotado") }
